@@ -28,5 +28,11 @@ public class AttributesResultTest {
         assertNotNull(attributesResult);
         assertEquals("name", attributesResult.getName());
         assertEquals("description", attributesResult.getDescription());
+
+        attributesResult = new AttributesResult();
+        assertEquals("", attributesResult.getName());
+        assertEquals("", attributesResult.getDescription());
+
     }
+
 }

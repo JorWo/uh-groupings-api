@@ -29,4 +29,24 @@ public class GroupingServiceResultExceptionTest extends GroupingsServiceResult {
         String expected = test.replaceAll("\\\\", "");
         assertThat(groupingsServiceResultException.getGsr().toString(), equalTo(expected));
     }
+
+    @Test
+    public void constructorTest() {
+        GroupingsServiceResultException exception = new GroupingsServiceResultException();
+        assertNull(exception.getGsr());
+    }
+    @Test
+    public void getGsrTest() {
+        GroupingsServiceResult groupingsServiceResult = new GroupingsServiceResult();
+        GroupingsServiceResultException exception = new GroupingsServiceResultException(groupingsServiceResult);
+        assertThat(exception.getGsr(), equalTo(groupingsServiceResult));
+    }
+
+    @Test
+    public void setGsrTest() {
+        GroupingsServiceResult groupingsServiceResult = new GroupingsServiceResult();
+        GroupingsServiceResultException exception = new GroupingsServiceResultException();
+        exception.setGsr(groupingsServiceResult);
+        assertThat(exception.getGsr(), equalTo(groupingsServiceResult));
+    }
 }

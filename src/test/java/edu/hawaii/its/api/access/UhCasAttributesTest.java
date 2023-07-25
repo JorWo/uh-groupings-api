@@ -202,20 +202,28 @@ public class UhCasAttributesTest {
     @Test
     public void misc() {
         Map<Object, Object> map = new HashMap<>();
-        map.put("uid", "duckart");
-        map.put("uhUuid", "666666");
+        map.put("uid", "testiwta");
+        map.put("uhUuid", "99997010");
         map.put("cn", "Frank");
         map.put("mail", "frank@example.com");
         map.put("eduPersonAffiliation", "aff");
         UhCasAttributes attributes = new UhCasAttributes(map);
 
         assertThat(attributes.getMap().size(), equalTo(5));
-        assertThat(attributes.getUid(), equalTo("duckart"));
-        assertThat(attributes.getUhUuid(), equalTo("666666"));
+        assertThat(attributes.getUid(), equalTo("testiwta"));
+        assertThat(attributes.getUhUuid(), equalTo("99997010"));
         assertThat(attributes.getName(), equalTo("Frank"));
         assertThat(attributes.getMail().get(0), equalTo("frank@example.com"));
         assertThat(attributes.getAffiliation().get(0), equalTo("aff"));
 
-        assertThat(attributes.toString(), containsString("uid=duckart"));
+        assertThat(attributes.toString(), containsString("uid=testiwta"));
+    }
+
+    @Test
+    public void uhCasAttributesTest() {
+        UhCasAttributes attributes = new UhCasAttributes();
+        assertThat(attributes.getUsername(), is(""));
+        assertThat(attributes.getUhUuid(), is(""));
+        assertThat(attributes.getUid(), is(""));
     }
 }
