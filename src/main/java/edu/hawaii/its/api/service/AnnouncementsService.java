@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import edu.hawaii.its.api.type.Announcements;
-import edu.hawaii.its.api.wrapper.FindAttributesResults;
 
 @Service
 public class AnnouncementsService {
@@ -23,9 +22,11 @@ public class AnnouncementsService {
     private GrouperApiService grouperApiService;
 
     public Announcements getAnnouncements() {
+        throw new RuntimeException();
+        /*
         FindAttributesResults findAttributesResults = grouperApiService.findAttributesResults(
                 ANNOUNCEMENTS_ATTR_DEF,
                 ANNOUNCEMENTS_ATTR_NAME);
-        return new Announcements(findAttributesResults);
+        return new Announcements(findAttributesResults);*/
     }
 }
